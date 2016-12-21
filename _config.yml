@@ -24,9 +24,6 @@ github_username:  mkly
 
 # Build settings
 markdown: kramdown
-gems:
-  - jekyll-assets
-  - jekyll-gravatar
 exclude:
   - Gemfile
   - Gemfile.lock
