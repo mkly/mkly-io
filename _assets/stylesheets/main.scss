@@ -1,0 +1,87 @@
+body {
+  font-family: 'Rubik', sans-serif;
+}
+
+.wrapper {
+  position: relative;
+  max-width: 720px;
+  margin: 50px auto 30px auto;
+}
+
+.header--photo {
+  border-radius: 8px;
+}
+
+.header--description {
+  color: #111;
+  display: inline-block;
+  margin-left: 6px;
+}
+
+.links {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.links--email,
+.links--github {
+  margin-bottom: 10px;
+  display: inline-block;
+  padding: 40px 33px 33px 33px;
+}
+
+.links--email {
+  padding-left: 18px;
+}
+
+.links--link__email,
+.links--link__github {
+  position: relative;
+  font-weight: 900;
+  font-size: 32px;
+  color: #666;
+  vertical-align: text-top;
+  bottom: 2px;
+  &:link,
+  &:visited,
+  &:hover,
+  &:active {
+    text-decoration: none;
+  }
+}
+
+@media (max-width: 790px) {
+  .wrapper {
+    margin: 30px;
+  }
+
+  .header--description {
+    display: block;
+    margin-top: 16px;
+    margin-left: 0;
+  }
+  .header--photo {
+    display: block;
+  }
+
+  .links {
+    margin-top: 10px;
+    margin-left: 0;
+    text-align: left;
+  }
+
+  .links--email,
+  .links--github {
+    display: block;
+    padding: 0;
+  }
+}
+
+@media (max-width: 399px) {
+  .links--icon__email,
+  .links--icon__github {
+    display: none;
+  }
+}

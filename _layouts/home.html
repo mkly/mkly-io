@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie-edge">
+    <title>{{ site.description }}</title>
+    <meta name="description" content="{{ site.description }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,900" rel="stylesheet"> 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    {% stylesheet main %}
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <h1 class="header">
+        <img class="header--photo" src="{{ site.email | to_gravatar }}?s=230">
+        <span class="header--description">{{ site.description }}</span>
+      </h1>
+      <ul class="links">
+        <li class="links--email"><a class="links--link__email" href="mailto:{{ site.email }}">{{ site.email }}</li>
+        <li class="links--github"><a class="links--link__github" href="https://github.com/{{ site.github_username }}">github/{{ site.github_username }}</li>
+      </ul>
+    </div>
+  </body>
+
+</html>
