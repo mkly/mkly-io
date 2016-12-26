@@ -16,8 +16,9 @@
 title: Software Development
 email: mike@mkly.io
 name: Mike Lay
-description: > # this means to ignore newlines until "baseurl:"
+description: >
   Mike Lay writes software.
+sub_description: hopefully better than he golfs
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://mkly.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  mkly
