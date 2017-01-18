@@ -1,4 +1,5 @@
 .header--sub-description {
+  visibility: visible;
   color: #999;
   font-weight: 900;
   font-size: 14px;
@@ -28,5 +29,11 @@
 
   @media (max-width: 332px) {
     font-size: 12px;
+  }
+}
+
+.no-js {
+  .header--sub-description {
+    visibility: hidden;
   }
 }
