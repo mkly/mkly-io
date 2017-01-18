@@ -1,6 +1,12 @@
+html {
+  height: 100%;
+}
+
 body {
   font-family: 'Rubik', sans-serif;
   overflow-x: hidden;
+  background: #ECE9E6;
+  background: linear-gradient(to top, #ECE9E6 , #FFFFFF);
 }
 
 .wrapper {
