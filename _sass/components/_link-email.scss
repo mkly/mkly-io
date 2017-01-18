@@ -1,0 +1,25 @@
+.links--email {
+  margin-bottom: 10px;
+  display: inline-block;
+  padding: 40px 33px 18px 33px;
+
+  @media (max-width: 750px) {
+    display: block;
+    padding: 0;
+  }
+}
+
+.links--link__email {
+  position: relative;
+  font-weight: 900;
+  font-size: 32px;
+  color: #666;
+  vertical-align: text-top;
+  bottom: 2px;
+  &:link,
+  &:visited,
+  &:hover,
+  &:active {
+    text-decoration: none;
+  }
+}

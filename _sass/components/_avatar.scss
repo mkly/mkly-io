@@ -1,0 +1,7 @@
+.header--photo {
+  border-radius: 8px;
+
+  @media (max-width: 750px) {
+    display: block;
+  }
+}

@@ -1,0 +1,34 @@
+body {
+  font-family: 'Rubik', sans-serif;
+  overflow-x: hidden;
+}
+
+.wrapper {
+  position: relative;
+  max-width: 720px;
+  margin: 50px auto 30px auto;
+}
+.header {
+  position: relative;
+}
+
+.links {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+@media (max-width: 750px) {
+  .wrapper {
+    margin: 30px;
+  }
+
+  .links {
+    margin-top: 10px;
+    margin-left: 0;
+    text-align: left;
+  }
+}
+
+

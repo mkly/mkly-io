@@ -1,0 +1,32 @@
+.header--sub-description {
+  color: #999;
+  font-weight: 900;
+  font-size: 14px;
+  display: block;
+  position: absolute;
+  bottom: -15px;
+  right: 0;
+  text-align: right;
+  &:before {
+    content: "( ";
+  }
+  &:after {
+    content: " )";
+  }
+
+  @media (max-width: 750px) {
+    left: 215px;
+    right: auto;
+    text-align: left;
+  }
+
+  @media (max-width: 515px) {
+    position: static;
+    text-align: left;
+    margin-top: 7px;
+  }
+
+  @media (max-width: 332px) {
+    font-size: 12px;
+  }
+}

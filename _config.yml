@@ -29,3 +29,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - vendor
+  - node_modules
+  - package.json
+  - webpack.config.js
+  - assets/entry.js

@@ -17,15 +17,17 @@
   <body>
     <div class="wrapper">
       <h1 class="header">
-        <img class="header--photo" src="http://www.gravatar.com/avatar/07e3220cf9363022c87f2229435a559d?s=230">
-        <span class="header--description">{{ site.description }}</span>
-        <span class="header--sub-description">{{ site.sub_description }}</span>
+        {% include components/avatar.html %}
+        {% include components/description.html %}
+        {% include components/sub-description.html %}
       </h1>
       <ul class="links">
-        <li class="links--email"><a class="links--link__email" href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-        <li class="links--github"><a class="links--link__github" href="https://github.com/{{ site.github_username }}">github/{{ site.github_username }}</a></li>
+        {% include components/link-email.html %}
+        {% include components/link-github.html %}
       </ul>
     </div>
+
+    <script async="true" src="/assets/bundle.js"></script>
   </body>
 
 </html>
