@@ -18,7 +18,7 @@ email: mike@mkly.io
 name: Mike Lay
 description: >
   Mike Lay writes software.
-sub_description: hopefully better than he golfs
+sub_description: sometimes
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://mkly.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  mkly
