@@ -1,0 +1,26 @@
+.links--icon {
+  margin-right: 6px;
+  margin-top: 4px;
+}
+
+.links--link {
+  font-weight: 900;
+  font-size: 32px;
+  color: #666;
+  &:link,
+  &:visited,
+  &:hover,
+  &:active {
+    text-decoration: none;
+  }
+  display: flex;
+  align-items: center;
+  padding: 24px;
+}
+
+@media (max-width: 625px) {
+  .links--link {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

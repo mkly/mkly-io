@@ -3,15 +3,15 @@ import { duration } from "defaults";
 
 export default (() =>
   new Html({
-    el: "[x-mkly-link-email]",
+    el: "[x-mkly-link-twitter]",
     y: {
       "30": 0,
       duration,
-      delay: 600,
+      delay: 800,
     },
     opacity: {
       0: 1,
       duration,
-      delay: 600,
+      delay: 800,
     },
   }).play())();
