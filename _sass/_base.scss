@@ -19,6 +19,7 @@ body {
 }
 
 .links {
+  visibility: visible;
   list-style-type: none;
   display: flex;
   flex-wrap: wrap;
@@ -26,6 +27,11 @@ body {
   padding: 0;
 }
 
+.no-js {
+  .links {
+    visibility: hidden;
+  }
+}
 
 @media (max-width: 625px) {
   .links {
