@@ -56,7 +56,9 @@
 
 	__webpack_require__(7);
 
-	var _init = __webpack_require__(8);
+	__webpack_require__(8);
+
+	var _init = __webpack_require__(9);
 
 	var _init2 = _interopRequireDefault(_init);
 
@@ -12243,6 +12245,36 @@
 
 /***/ }),
 /* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _moJs = __webpack_require__(2);
+
+	var _defaults = __webpack_require__(4);
+
+	exports.default = function () {
+	  return new _moJs.Html({
+	    el: "[x-mkly-link-huggingface]",
+	    y: {
+	      "30": 0,
+	      duration: _defaults.duration,
+	      delay: 1300
+	    },
+	    opacity: {
+	      0: 1,
+	      duration: _defaults.duration,
+	      delay: 1300
+	    }
+	  }).play();
+	}();
+
+/***/ }),
+/* 9 */
 /***/ (function(module, exports) {
 
 	'use strict';
