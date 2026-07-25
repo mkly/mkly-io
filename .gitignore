@@ -5,3 +5,6 @@ _site
 .asset-cache/
 node_modules/
 npm-debug.log
+assets/main.css
+assets/main.css.map
+ga-auth.json
