@@ -20,11 +20,14 @@ description: >
   Mike Lay writes software.
 sub_description: sometimes
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://mkly.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://mkly.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  mkly
 discord_username: mkly
 twitter_username: __mkly__
 huggingface_username: mkly
+
+plugins:
+  - jekyll-seo-tag
 
 # Build settings
 markdown: kramdown
