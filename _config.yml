@@ -13,12 +13,12 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Software Development
+title: Mike Lay writes software
 email: mike@mkly.io
 name: Mike Lay
 description: >
-  Mike Lay writes software.
-sub_description: sometimes
+  Mike Lay is a software engineer located in San Francisco.
+sub_description: "♥ SF"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://mkly.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  mkly

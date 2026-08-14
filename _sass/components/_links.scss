@@ -1,27 +1,32 @@
 .links--icon {
+  height: 1em;
+  width: auto;
   margin-right: 6px;
   margin-top: 4px;
 }
 
 .links--link {
-  font-weight: 900;
-  font-size: 32px;
-  color: #666;
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: -0.02em;
+  color: var(--color-muted);
+  transition: color 0.2s ease;
   &:link,
   &:visited,
-  &:hover,
   &:active {
     text-decoration: none;
   }
+  &:hover {
+    text-decoration: none;
+    color: var(--color-accent);
+  }
   display: flex;
   align-items: center;
-  padding: 24px;
+  padding: 14px 0;
 }
 
 @media (max-width: 625px) {
   .links--link {
-    padding: 12px;
-    padding-left: 0;
-    padding-right: 0;
+    padding: 12px 0;
   }
 }

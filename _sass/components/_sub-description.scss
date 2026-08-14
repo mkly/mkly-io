@@ -1,34 +1,17 @@
 .header--sub-description {
   visibility: visible;
-  color: #999;
-  font-weight: 900;
-  font-size: 14px;
-  display: block;
-  position: absolute;
-  bottom: -15px;
-  right: 0;
-  text-align: right;
-  &:before {
-    content: "( ";
-  }
-  &:after {
-    content: " )";
-  }
+  color: var(--color-accent);
+  font-weight: 700;
+  font-size: 26px;
+  letter-spacing: -0.02em;
+  align-self: flex-end;
+  padding: 8px 28px 24px 0;
 
-  @media (max-width: 750px) {
-    left: 215px;
-    right: auto;
-    text-align: left;
-  }
-
-  @media (max-width: 515px) {
-    position: static;
-    text-align: left;
-    margin-top: 7px;
-  }
-
-  @media (max-width: 332px) {
-    font-size: 12px;
+  canvas {
+    width: 34px;
+    height: 34px;
+    vertical-align: -9px;
+    margin-right: 2px;
   }
 }
 
