@@ -1,5 +1,7 @@
 :root {
   color-scheme: light dark;
+  --font-display: 'Atkinson Hyperlegible Next', -apple-system, 'Segoe UI', sans-serif;
+  --font-sans: 'Atkinson Hyperlegible Next', -apple-system, 'Segoe UI', sans-serif;
   --color-text: #1c1c1e;
   --color-muted: #55555c;
   --color-accent: #d9503a;
@@ -20,7 +22,7 @@
 }
 
 body {
-  font-family: 'Space Grotesk', -apple-system, 'Segoe UI', sans-serif;
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
   background: linear-gradient(160deg, var(--bg-start) 0%, var(--bg-end) 100%);
@@ -57,7 +59,7 @@ a:focus-visible {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  column-gap: 48px;
+  column-gap: 32px;
   padding: 0;
   margin: 8px 0;
 }

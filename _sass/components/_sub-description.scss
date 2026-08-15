@@ -1,9 +1,10 @@
 .header--sub-description {
   visibility: visible;
   color: var(--color-accent);
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-weight: 600;
   font-size: 26px;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   align-self: flex-end;
   padding: 8px 28px 24px 0;
 
