@@ -1,14 +1,5 @@
 .header--photo {
-  border: 3px solid var(--color-text);
-
   @media (max-width: 750px) {
     display: block;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .header--photo {
-    border-color: var(--color-text);
-    border-width: 2px;
   }
 }
