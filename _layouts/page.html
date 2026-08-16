@@ -19,10 +19,12 @@
 
   <body>
     <main class="wrapper">
+      {% unless page.hide_header %}
       <h1 class="header">
         {% include components/avatar.html %}
         {% include components/description.html %}
       </h1>
+      {% endunless %}
       {{ content }}
     </main>
     {% include components/sub-description.html %}
