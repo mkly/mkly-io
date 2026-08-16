@@ -22,8 +22,14 @@ permalink: /qrcode/
       }
 
       a {
-        display: block;
-        width: min(90vmin, 720px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        width: min(90vw, calc(90vh - 3rem), 720px);
+        color: #000;
+        font: 2rem/1.2 sans-serif;
+        text-decoration: none;
       }
 
       img {
@@ -35,6 +41,7 @@ permalink: /qrcode/
   </head>
   <body>
     <a href="https://mkly.io" aria-label="Open mkly.io">
+      <span>mkly.io</span>
       <img src="/qrcode/qrcode.svg" alt="QR code for https://mkly.io">
     </a>
   </body>
