@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#faf9f7" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#201f1d" media="(prefers-color-scheme: dark)">
+    <link rel="icon" href="https://www.gravatar.com/avatar/07e3220cf9363022c87f2229435a559d?s=64">
+    {% seo %}
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400..800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" rel="stylesheet">
+    <link href="/assets/main.css" rel="stylesheet">
+
+    {% include ga.html %}
+  </head>
+
+  <body>
+    <main class="wrapper">
+      <h1 class="header">
+        {% include components/avatar.html %}
+        {% include components/description.html %}
+      </h1>
+      {{ content }}
+    </main>
+    {% include components/sub-description.html %}
+    <script defer src="/assets/heart.js"></script>
+  </body>
+
+</html>
