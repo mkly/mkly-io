@@ -12205,14 +12205,14 @@
 	  return new _moJs.Html({
 	    el: "[x-mkly-link-linkedin]",
 	    y: {
-	      "25": 0,
+	      "30": 0,
 	      duration: _defaults.duration,
-	      delay: 700
+	      delay: 1500
 	    },
 	    opacity: {
 	      0: 1,
 	      duration: _defaults.duration,
-	      delay: 700
+	      delay: 1500
 	    }
 	  }).play();
 	}();
