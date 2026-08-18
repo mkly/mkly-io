@@ -60,7 +60,9 @@
 
 	__webpack_require__(9);
 
-	var _init = __webpack_require__(10);
+	__webpack_require__(10);
+
+	var _init = __webpack_require__(11);
 
 	var _init2 = _interopRequireDefault(_init);
 
@@ -12201,6 +12203,36 @@
 
 	exports.default = function () {
 	  return new _moJs.Html({
+	    el: "[x-mkly-link-linkedin]",
+	    y: {
+	      "25": 0,
+	      duration: _defaults.duration,
+	      delay: 700
+	    },
+	    opacity: {
+	      0: 1,
+	      duration: _defaults.duration,
+	      delay: 700
+	    }
+	  }).play();
+	}();
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _moJs = __webpack_require__(2);
+
+	var _defaults = __webpack_require__(4);
+
+	exports.default = function () {
+	  return new _moJs.Html({
 	    el: "[x-mkly-link-discord]",
 	    y: {
 	      "30": 0,
@@ -12216,7 +12248,7 @@
 	}();
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -12246,7 +12278,7 @@
 	}();
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -12276,7 +12308,7 @@
 	}();
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -12306,7 +12338,7 @@
 	}();
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports) {
 
 	'use strict';
