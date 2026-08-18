@@ -89,6 +89,15 @@ a:focus-visible {
   margin: 8px 0;
 }
 
+.links--primary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  > .links {
+    margin: 0;
+  }
+}
+
 .no-js {
   .links {
     visibility: hidden;
