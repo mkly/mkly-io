@@ -6,6 +6,7 @@ import "components/link-discord";
 import "components/link-twitter";
 import "components/link-huggingface";
 import "components/link-thenetwork";
+import "components/link-thelastsaas";
 
 import init from "init";
 

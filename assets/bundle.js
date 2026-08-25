@@ -62,6 +62,8 @@
 
 	__webpack_require__(10);
 
+	__webpack_require__(12);
+
 	var _init = __webpack_require__(11);
 
 	var _init2 = _interopRequireDefault(_init);
@@ -12350,6 +12352,36 @@
 	exports.default = function () {
 	  document.body.className = '';
 	};
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _moJs = __webpack_require__(2);
+
+	var _defaults = __webpack_require__(4);
+
+	exports.default = function () {
+	  return new _moJs.Html({
+	    el: "[x-mkly-link-thelastsaas]",
+	    y: {
+	      "30": 0,
+	      duration: _defaults.duration,
+	      delay: 1900
+	    },
+	    opacity: {
+	      0: 1,
+	      duration: _defaults.duration,
+	      delay: 1900
+	    }
+	  }).play();
+	}();
 
 /***/ })
 /******/ ]);
