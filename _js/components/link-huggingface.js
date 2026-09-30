@@ -7,11 +7,11 @@ export default (() =>
     y: {
       "30": 0,
       duration,
-      delay: 1300,
+      delay: 1000,
     },
     opacity: {
       0: 1,
       duration,
-      delay: 1300,
+      delay: 1000,
     },
   }).play())();

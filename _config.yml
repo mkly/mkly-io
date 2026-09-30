@@ -26,6 +26,7 @@ linkedin_url: https://linkedin.com/in/mkly
 discord_username: mkly
 twitter_username: __mkly__
 huggingface_username: mkly
+orcid_id: 0009-0002-2074-0455
 
 plugins:
   - jekyll-seo-tag

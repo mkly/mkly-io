@@ -62,9 +62,11 @@
 
 	__webpack_require__(10);
 
+	__webpack_require__(11);
+
 	__webpack_require__(12);
 
-	var _init = __webpack_require__(11);
+	var _init = __webpack_require__(13);
 
 	var _init2 = _interopRequireDefault(_init);
 
@@ -12209,12 +12211,12 @@
 	    y: {
 	      "30": 0,
 	      duration: _defaults.duration,
-	      delay: 1500
+	      delay: 1400
 	    },
 	    opacity: {
 	      0: 1,
 	      duration: _defaults.duration,
-	      delay: 1500
+	      delay: 1400
 	    }
 	  }).play();
 	}();
@@ -12239,12 +12241,12 @@
 	    y: {
 	      "30": 0,
 	      duration: _defaults.duration,
-	      delay: 1000
+	      delay: 1200
 	    },
 	    opacity: {
 	      0: 1,
 	      duration: _defaults.duration,
-	      delay: 1000
+	      delay: 1200
 	    }
 	  }).play();
 	}();
@@ -12299,18 +12301,48 @@
 	    y: {
 	      "30": 0,
 	      duration: _defaults.duration,
-	      delay: 1300
+	      delay: 1000
 	    },
 	    opacity: {
 	      0: 1,
 	      duration: _defaults.duration,
-	      delay: 1300
+	      delay: 1000
 	    }
 	  }).play();
 	}();
 
 /***/ }),
 /* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _moJs = __webpack_require__(2);
+
+	var _defaults = __webpack_require__(4);
+
+	exports.default = function () {
+	  return new _moJs.Html({
+	    el: "[x-mkly-link-orcid]",
+	    y: {
+	      "30": 0,
+	      duration: _defaults.duration,
+	      delay: 1600
+	    },
+	    opacity: {
+	      0: 1,
+	      duration: _defaults.duration,
+	      delay: 1600
+	    }
+	  }).play();
+	}();
+
+/***/ }),
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -12338,20 +12370,6 @@
 	    }
 	  }).play();
 	}();
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	exports.default = function () {
-	  document.body.className = '';
-	};
 
 /***/ }),
 /* 12 */
@@ -12382,6 +12400,20 @@
 	    }
 	  }).play();
 	}();
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	exports.default = function () {
+	  document.body.className = '';
+	};
 
 /***/ })
 /******/ ]);
