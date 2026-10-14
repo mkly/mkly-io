@@ -63,6 +63,10 @@ a:focus-visible { outline: 3px double #e2ba4a; outline-offset: 4px; }
 .anti-project h3 { margin: 0; font-size: clamp(29px, 5vw, 53px); line-height: 1; letter-spacing: -.045em; }
 .anti-project p { max-width: 720px; margin: 9px 0 0; font-size: 16px; line-height: 1.4; }
 .anti-project h3 a { text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.anti-card-link::after { content: ''; position: absolute; inset: 0; z-index: 1; border-radius: inherit; }
+.anti-card-link:focus-visible::after { outline: 2px solid #fbea68; outline-offset: -4px; }
+.anti-saas-github { position: relative; }
+.anti-saas-github, .anti-network-github { z-index: 2; }
 .anti-tag { position: static; flex-shrink: 0; align-self: center; margin: 12px 18px 12px auto; max-width: 150px; padding: 5px; color: #211c14; background: #bfc52a; font: bold 14px/1.1 'Courier New', monospace; transform: rotate(11deg); }
 .anti-project-saas { display: block; isolation: isolate; overflow: hidden; border: 0; outline: 0; border-radius: 0; background: #fcfaf6; color: #203d35; margin: 0 9% 10px -1%; padding: 16px 24px 47px; text-align: center; font-family: 'Last SaaS Switzer', sans-serif; -webkit-font-smoothing: antialiased; transform: rotate(-1.8deg); }
 .anti-project-saas .anti-saas-header h3 { font-family: inherit; font-size: 18px; font-weight: 650; line-height: 1.2; letter-spacing: -.04em; }
@@ -107,10 +111,13 @@ a:focus-visible { outline: 3px double #e2ba4a; outline-offset: 4px; }
 .anti-project-poet { margin: 20px -1% 17px 14%; padding-top: 23px; border-left: 11px double #ee421c; border-bottom: 6px double #b5f300; background: #1738c2; transform: rotate(2.3deg); }
 .anti-project-poet h3 { font-family: var(--font-serif); font-style: italic; }
 .anti-project-poet h3 a { color: #b0c9ec; text-shadow: rgb(25 150 88) 2px 2px; }
+.anti-project-poet h3 a, .anti-project-desktop h3 a { transition: color 120ms, background-color 120ms, text-shadow 120ms; }
+.anti-project-poet h3 a:is(:hover, :focus-visible) { color: #fbea68; text-shadow: 3px 3px #891d16; text-decoration-thickness: 5px; }
 .anti-project-poet .anti-tag { color: #eeecd0; background: #891d16; transform: rotate(-7deg); }
 .anti-project-desktop { margin: 24px 2% 22px 23%; padding-bottom: 20px; border-bottom: 4px double #bfc52a; transform: rotate(-2.1deg); }
 .anti-project-desktop .anti-tag { background: #2838d6; color: #fbea68; }
 .anti-project-desktop h3 a { text-transform: uppercase; background: #81e000; color: #39255e; padding: 0 8px; text-decoration-thickness: 12px; }
+.anti-project-desktop h3 a:is(:hover, :focus-visible) { background: #39255e; color: #b5f300; text-decoration-color: #ff4719; }
 .anti-project-network { display: block; margin: 10px 12% 14px -1%; padding: 46px 36px 34px; border: 0; outline: 0; border-radius: 0; background: #f2efe8; color: #111827; text-align: center; font-family: 'Instrument Serif', serif; -webkit-font-smoothing: antialiased; transform: rotate(1.4deg); }
 .anti-project-network h3 { font-family: inherit; font-weight: 400; font-size: clamp(31px, 5vw, 58px); line-height: 1.1; text-transform: lowercase; letter-spacing: -.02em; }
 .anti-project-network h3 a, .anti-project-network h3 a:visited { display: inline-block; color: transparent; background: linear-gradient(90deg, #111827, #667085, #27324a, #111827); background-size: 300% 100%; background-clip: text; -webkit-background-clip: text; text-decoration: none; animation: network-prismatic-shift 30s linear infinite; }
@@ -127,7 +134,7 @@ a:focus-visible { outline: 3px double #e2ba4a; outline-offset: 4px; }
 .anti-project-ruffle::before { content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none; background: radial-gradient(ellipse 90% 80% at 50% 40%, #ffffff24, #ffffff00 62%, #00000012 100%), linear-gradient(180deg, #ffffff4d, #ffffff00 4.4px, #00000000 calc(100% - 5px), #0000003d), linear-gradient(90deg, #0000001c, #00000000 4.4px, #00000000 calc(100% - 4.4px), #0000001c); }
 .anti-project-ruffle h3 { font-family: inherit; font-weight: 900; letter-spacing: -.035em; }
 .anti-project-ruffle h3 a, .anti-project-ruffle h3 a:visited { color: #f8f2e7; text-decoration: none; }
-.anti-project-ruffle h3 a:hover { color: #efe7d6; text-decoration: underline; text-decoration-thickness: 2px; }
+.anti-project-ruffle h3 a:hover { color: #efe7d6; text-decoration: none; }
 .anti-project-ruffle p { color: #f8f2e7cc; font-weight: 700; line-height: 1.45; }
 .anti-project-ruffle .anti-ruffle-subtitle { color: #f8f2e7; font-size: clamp(18px, 2vw, 23px); font-weight: 900; line-height: 1.25; letter-spacing: -.02em; }
 .anti-project-ruffle .anti-ruffle-subtitle + p { margin-top: 3px; }
@@ -149,7 +156,7 @@ a:focus-visible { outline: 3px double #e2ba4a; outline-offset: 4px; }
 .anti-cork-board { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; overflow: visible; pointer-events: none; filter: drop-shadow(2px 6px 5px #090b0880); mask-image: linear-gradient(to bottom, #000 45%, #0009 72%, transparent 100%); }
 .anti-elsewhere h2 { display: table; margin: 0 0 12px 9px; padding: 3px 6px; color: #211c14; background: #bfc52a; font: bold 18px 'Courier New', monospace; transform: rotate(-4deg); }
 .anti-elsewhere .links--primary { margin: 12px 0; gap: 9px 14px; }
-.anti-elsewhere .links--link { font-size: clamp(22px, 2.8vw, 32px); font-weight: 800; padding: 6px 8px; }
+.anti-elsewhere .links--link { font-size: clamp(22px, 2.8vw, 32px); font-weight: 800; padding: 6px 8px; transition: color 120ms, background-color 120ms, box-shadow 120ms, transform 120ms; }
 .anti-elsewhere .links--primary > .links:first-child .links--link { color: #e4edaa; background: linear-gradient(142deg, #8b2813 18%, #6d1752 65%, #343a05 100%); }
 .anti-elsewhere .links--primary [x-mkly-link-github] .links--link { position: relative; padding: 4px 12px 5px; border: 3px double #d0db58; background: linear-gradient(115deg, #532378 10%, #244ba0 65%, #196942); box-shadow: 4px 4px 0 #c44b16; color: #e8d9fa; font-family: var(--font-serif); font-style: italic; letter-spacing: .025em; text-decoration: none; transform: rotate(-3deg); }
 .anti-elsewhere .links--primary [x-mkly-link-github] .links--link::after { content: '\2632'; position: absolute; right: -9px; top: -13px; color: #d0db58; font: 22px/1 var(--font-serif); text-shadow: 2px 2px #532378; }
@@ -160,6 +167,13 @@ a:focus-visible { outline: 3px double #e2ba4a; outline-offset: 4px; }
 .anti-elsewhere .links--primary > .links:nth-child(4) .links--link { color: #c5e5db; background: #6a194e; }
 .anti-elsewhere .links--primary > .links:nth-child(5) .links--link { color: #321812; background: #b491d6; }
 .anti-elsewhere .links--primary > .links:nth-child(6) .links--link { color: #b6ceeb; background: #513117; }
+.anti-elsewhere .links--primary [x-mkly-link-email] .links--link:is(:hover, :focus-visible) { color: #fff1b8; background: linear-gradient(322deg, #8b2813 18%, #6d1752 65%, #343a05 100%); text-decoration-style: double; text-underline-offset: 4px; }
+.anti-elsewhere .links--primary [x-mkly-link-github] .links--link:is(:hover, :focus-visible) { box-shadow: 7px 7px 0 #ff681d; border-color: #edfb81; transform: rotate(-1deg); }
+.anti-elsewhere .links--primary [x-mkly-link-github] .links--link:is(:hover, :focus-visible) .links--text { text-decoration-thickness: 4px; text-underline-offset: 5px; }
+.anti-elsewhere .links--primary [x-mkly-link-twitter] .links--link:is(:hover, :focus-visible) { color: #d6e535; background: #291244; box-shadow: 3px 3px 0 #bfc52a; }
+.anti-elsewhere .links--primary [x-mkly-link-huggingface] .links--link:is(:hover, :focus-visible) { color: #fff0c6; background: #873158; outline: 3px double #c5e5db; outline-offset: 2px; text-decoration-style: wavy; text-underline-offset: 4px; }
+.anti-elsewhere .links--primary [x-mkly-link-linkedin] .links--link:is(:hover, :focus-visible) { color: #172d54; background: #b0c9ec; box-shadow: inset 0 -4px 0 #321812; text-decoration: none; }
+.anti-elsewhere .links--primary [x-mkly-link-orcid] .links--link:is(:hover, :focus-visible) { color: #d6ed9b; background: #28472a; text-shadow: 0 0 6px #d6ed9b55; text-decoration-thickness: 3px; text-underline-offset: 5px; }
 .anti-elsewhere .links--primary [x-mkly-link-orcid] .links--link { font-size: clamp(16px, 2vw, 23px); }
 .anti-elsewhere .links--primary [x-mkly-link-orcid] .links--text { overflow: visible; white-space: normal; }
 .anti-elsewhere .links--primary > .links:nth-child(3) { transform: rotate(-4deg); }
