@@ -66,7 +66,7 @@ a:focus-visible { outline: 3px double #e2ba4a; outline-offset: 4px; }
 .anti-halo::before { content: ''; position: absolute; width: 1.35em; height: .36em; left: -.15em; top: -.5em; border: 2px solid #ffe36d; border-radius: 50%; transform: rotate(-14deg); box-shadow: 0 0 5px #ffe36d99; }
 .anti-project-poet { margin: 20px -1% 17px 14%; padding-top: 23px; border-left: 11px double #ee421c; border-bottom: 6px double #b5f300; background: #1738c2; transform: rotate(1.7deg); }
 .anti-project-poet h3 { font-family: var(--font-serif); font-style: italic; }
-.anti-project-poet h3 a { color: #b0c9ec; }
+.anti-project-poet h3 a { color: #b0c9ec; text-shadow: rgb(25 150 88) 2px 2px; }
 .anti-project-poet .anti-tag { color: #eeecd0; background: #891d16; transform: rotate(-7deg); }
 .anti-project-desktop { margin: 14px 7% 22px 2%; border: 3px double #51106d; color: #172100; background: #8cc800; box-shadow: 7px 7px 0 #8131ad; transform: rotate(-.6deg); }
 .anti-project-desktop .anti-tag { background: #2838d6; color: #fbea68; }
@@ -74,11 +74,11 @@ a:focus-visible { outline: 3px double #e2ba4a; outline-offset: 4px; }
 .anti-project-desktop h3 { font-family: 'Courier New', monospace; letter-spacing: -.07em; }
 .anti-project-desktop h3 a { color: #51106d; text-decoration-color: #b32f08; }
 .anti-project-network { margin: 10px 12% 14px -1%; border: 6px double #afc5e8; outline: 6px double #d295ed; outline-offset: 3px; background: linear-gradient(24deg, #007c54 15%, #1b2bb7 61%, #9c3218 100%); transform: rotate(-1.4deg); }
-.anti-project-network h3 { font-weight: 400; text-transform: uppercase; }
+.anti-project-network h3 { font-weight: 400; text-transform: lowercase; font-family: serif; letter-spacing: 3px; }
 .anti-project-network h3 a { color: #ffa568; }
 .anti-project-network .anti-tag { color: #262014; background: #d295ed; }
 .anti-project-ruffle { margin: 24px 2% 22px 23%; padding-bottom: 20px; border-bottom: 4px double #bfc52a; transform: rotate(1.5deg); }
-.anti-project-ruffle h3 a { background: #81e000; color: #39255e; padding: 0 8px; }
+.anti-project-ruffle h3 a { text-transform: uppercase; background: #81e000; color: #39255e; padding: 0 8px; }
 .anti-more { position: relative; margin-top: 28px; background: linear-gradient(111deg, #44241e 24%, #403a13 72%, #382248 100%); border: 6px double #9ba888; outline: 1px solid #ff4719; outline-offset: 3px; padding: 12px; font: 15px/1.7 'Courier New', monospace; transform: rotate(-.5deg); }
 .anti-more h3 { margin: 0; font: bold 20px 'Courier New', monospace; color: #bfc52a; }
 .anti-more ul { margin: 8px 0 12px; padding-left: 22px; list-style-type: '\21b3  '; }
