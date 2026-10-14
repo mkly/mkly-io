@@ -70,13 +70,9 @@ function init() {
   }
   applyColor();
 
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const media = window.matchMedia('(prefers-color-scheme: dark)');
   if (media.addEventListener) {
-    media.addEventListener('change', () => {
-      applyColor();
-      if (reduceMotion.matches) renderer.render(scene, camera);
-    });
+    media.addEventListener('change', applyColor);
   }
 
   let last = 0;
@@ -85,7 +81,7 @@ function init() {
     last = now;
     heart.rotation.y += dt * 0.6;
     renderer.render(scene, camera);
-    if (!reduceMotion.matches) requestAnimationFrame(frame);
+    requestAnimationFrame(frame);
   }
   requestAnimationFrame((now) => {
     last = now;

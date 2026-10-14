@@ -8,6 +8,7 @@ import {
 import { createSkylineLife } from './skyline-life';
 // The homepage shares one Three.js bundle between the heart and skyline.
 import './heart';
+import './ghost';
 
 const container = document.querySelector('.anti-skyline');
 if (container) init(container);
@@ -238,7 +239,6 @@ function init(container) {
   new ResizeObserver(resize).observe(container);
   resize();
 
-  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   let visible = false;
   let animation = null;
   let last = 0;
@@ -255,7 +255,7 @@ function init(container) {
     animation = requestAnimationFrame(tick);
   }
   function sync() {
-    if (visible && !document.hidden && !reducedMotion.matches) {
+    if (visible && !document.hidden) {
       if (animation === null) {
         last = performance.now();
         animation = requestAnimationFrame(tick);
@@ -264,16 +264,11 @@ function init(container) {
       cancelAnimationFrame(animation);
       animation = null;
     }
-    if (reducedMotion.matches) {
-      updateCamera();
-      renderFrame();
-    }
   }
   new IntersectionObserver(([entry]) => {
     visible = entry.isIntersecting;
     sync();
   }).observe(container);
-  reducedMotion.addEventListener('change', sync);
   document.addEventListener('visibilitychange', sync);
 
   const raycaster = new Raycaster();
@@ -345,14 +340,13 @@ function init(container) {
       drag.y = event.clientY;
     } else if (event.pointerType !== 'touch') {
       hoverEvent = event;
-      if (!updateHover()) life.steer(pointInSky(event), reducedMotion.matches);
-      if (reducedMotion.matches) renderFrame();
+      if (!updateHover()) life.steer(pointInSky(event));
     }
   });
   canvas.addEventListener('pointerup', event => {
     if (!drag || event.pointerId !== drag.id) return;
     if (!drag.moved && drag.plane) {
-      life.crashPlane(reducedMotion.matches);
+      life.crashPlane();
       renderFrame();
     }
     drag = null;
@@ -374,7 +368,7 @@ function init(container) {
     else if (event.key === 'ArrowUp') rotateView(0, .06);
     else if (event.key === 'ArrowDown') rotateView(0, -.06);
     else if (event.key.toLowerCase() === 'c') {
-      life.crashPlane(reducedMotion.matches);
+      life.crashPlane();
       renderFrame();
     } else if (event.key.toLowerCase() === 'r') resetView();
     else return;

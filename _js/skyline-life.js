@@ -115,11 +115,10 @@ export function createSkylineLife(scene, cube, material) {
   let hovering = false;
   let crash = null;
   const crashVelocity = new Vector3();
-  function steer(position, snap = false) {
+  function steer(position) {
     if (crash) return;
     flightTarget.copy(position);
     steering = true;
-    if (snap) plane.position.copy(position);
   }
   function releasePlane() { steering = false; }
   function hoverPlane(value) { hovering = value && !crash; }
@@ -132,19 +131,12 @@ export function createSkylineLife(scene, cube, material) {
     plane.position.set(-30, 20, 18);
     plane.rotation.set(0, 0, 0);
   }
-  function crashPlane(snap = false) {
+  function crashPlane() {
     if (!canCrashPlane()) return;
     crash = { age: 0, submerged: false, wait: 0 };
     hovering = false;
     steering = false;
     crashVelocity.set(Math.cos(plane.rotation.y) * 7, -3, 3);
-    if (snap) {
-      plane.position.y = -.25;
-      plane.visible = false;
-      crash.submerged = true;
-      splash(plane.position.x, plane.position.z, 1.7, .3);
-      update(0);
-    }
   }
 
   let elapsed = 0;
