@@ -6,10 +6,10 @@
     <meta http-equiv="x-ua-compatible" content="ie-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#171612">
-    <link rel="icon" href="https://www.gravatar.com/avatar/07e3220cf9363022c87f2229435a559d?s=64">
+    <link rel="icon" href="/assets/mike-lay-avatar.png">
     {% seo %}
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,700;1,700&amp;family=Bodoni+Moda:ital,wght@0,700;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,700;1,700&amp;family=Bodoni+Moda:ital,wght@0,700;1,700&amp;family=Instrument+Serif&amp;family=Nunito:wght@500;700;900&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" rel="stylesheet">
     <link href="/assets/main.css" rel="stylesheet">
     <link href="/assets/home.css" rel="stylesheet">
@@ -65,7 +65,7 @@
       <header class="anti-masthead">
         <p class="anti-address">mkly.io / SAN FRANCISCO / SOFTWARE ENGINEER / AI ENGINEER</p>
         <h1 class="anti-name"><span>MIKE</span><span>LAY<span class="anti-period">.</span></span></h1>
-        <span class="anti-photo-reveal"><span class="anti-photo"><img src="https://www.gravatar.com/avatar/07e3220cf9363022c87f2229435a559d?s=240" alt="Mike Lay" width="150" height="150"></span></span>
+        <span class="anti-photo-reveal"><span class="anti-photo"><img src="/assets/mike-lay-avatar.png" alt="Mike Lay" width="512" height="512"></span></span>
         <p class="anti-note">help me, I'm jobless :(</p>
       </header>
       <section class="anti-intro" aria-label="About Mike">
@@ -76,34 +76,44 @@
         <h2 id="projects-title">STUFF I’VE MADE<span aria-hidden="true">*</span></h2>
         <p class="anti-footnote">* even more slop on <a href="https://github.com/{{ site.github_username }}">GitHub</a> : Help me out with a star?</p>
         <article class="anti-project anti-project-saas">
+          {% include components/lastsaas-sky.html %}
           <span class="anti-number" aria-hidden="true">01</span>
-          <div><h3><a href="https://thelastsaas.com">The Last SaaS.</a></h3>
-          <p><span class="anti-halo">Do</span> all SaaS go to heaven? A headless SaaS for agents and assistants. <a href="https://github.com/mkly/thelastsaas">[source]</a></p></div>
-          <span class="anti-tag">DATA!<br>AGENTS!</span>
+          <header class="anti-saas-header">
+            <h3><a href="https://thelastsaas.com"><span class="anti-saas-mark" aria-hidden="true"></span>The Last SaaS.</a></h3>
+            <a class="anti-saas-github" href="https://github.com/mkly/thelastsaas" aria-label="The Last SaaS source on GitHub"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.1c-3.3.7-4-1.4-4-1.4-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3Z"/></svg></a>
+          </header>
+          <div>
+            <p class="anti-saas-eyebrow"><span class="anti-halo">Do</span> all SaaS go to heaven?</p>
+            <p class="anti-saas-subtitle">A headless SaaS for <strong>agents and assistants.</strong></p>
+          </div>
         </article>
         <article class="anti-project anti-project-poet">
           <span class="anti-number" aria-hidden="true">02</span>
           <div><h3><a href="https://github.com/mkly/pr-poet">PR Poet</a></h3>
-          <p>Your pull requests, in verse. A GitHub Action with a fine-tuned 0.6B Qwen model that rhymes. <a href="https://huggingface.co/mkly/pr-poet-lora">[model]</a> <a href="https://github.com/mkly/pr-poet-training">[training repo]</a></p></div>
+          <p>Your pull requests, in verse. A GitHub Action with a fine-tuned 0.6B Qwen model <em>that rhymes.</em> <a href="https://huggingface.co/mkly/pr-poet-lora">[model]</a> <a href="https://github.com/mkly/pr-poet-training">[training repo]</a></p></div>
           <span class="anti-tag">code → poetry</span>
         </article>
-        <article class="anti-project anti-project-desktop">
-          <span class="anti-number" aria-hidden="true">03</span>
-          <div><h3><a href="https://github.com/mkly/agent-desktop">agent-desktop</a></h3>
-          <p>Headless Linux desktops for AI agents that need GUI apps. Especially when your agent browser keeps getting blocked by cloudflare.</p></div>
-          <span class="anti-tag">MORE AGENTS!</span>
+        <article class="anti-project anti-project-ruffle">
+          <svg class="anti-ruffle-stitch" aria-hidden="true"><rect class="anti-ruffle-thread-shadow"/><rect class="anti-ruffle-thread"/></svg>
+          <span class="anti-number" aria-hidden="true"><svg class="anti-ruffle-stitch"><rect class="anti-ruffle-thread-shadow"/><rect class="anti-ruffle-thread"/></svg>03</span>
+          <div><h3><a href="https://helloruffle.com">Ruffle</a></h3>
+          <p class="anti-ruffle-subtitle">Monthly sponsorships for your rescue.</p>
+          <p>Give supporters a way to sponsor the animals in your care.</p></div>
+          <img class="anti-ruffle-dog" src="/assets/ruffle-felt-dog.png" alt="" width="880" height="900" loading="lazy" decoding="async">
         </article>
         <article class="anti-project anti-project-network">
           <span class="anti-number" aria-hidden="true">04</span>
+          <span class="anti-network-label" aria-hidden="true">The Network</span>
           <div><h3><a href="https://thenetwork.fyi">join@<wbr>thenetwork.fyi</a></h3>
-            <p>The <em>most exclusive</em> agent driven email network. <a href="https://github.com/thenetwork/thenetwork">[source]</a></p>
+            <p>The <em>most exclusive</em> agent driven email network.</p>
           </div>
-          <span class="anti-tag">you’ve got mail.</span>
+          <a class="anti-network-github" href="https://github.com/thenetworkfyi/thenetworkfyi" aria-label="The Network source on GitHub"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.1c-3.3.7-4-1.4-4-1.4-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3Z"/></svg></a>
         </article>
-        <article class="anti-project anti-project-ruffle">
+        <article class="anti-project anti-project-desktop">
           <span class="anti-number" aria-hidden="true">05</span>
-          <div><h3><a href="https://helloruffle.com">Ruffle</a></h3>
-          <p>Sponsorship fundraising for animal rescues. Who doesn't love dogs?</p></div>
+          <div><h3><a href="https://github.com/mkly/agent-desktop">agent-desktop</a></h3>
+          <p>Headless Linux desktops for AI agents that need GUI apps. Especially when your agent browser keeps getting blocked by cloudflare.</p></div>
+          <span class="anti-tag">MORE AGENTS!</span>
         </article>
         <aside class="anti-more" aria-labelledby="also-title">
           <h3 id="also-title">also:</h3>

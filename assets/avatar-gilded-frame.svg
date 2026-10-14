@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2=".8" y2="1">
+      <stop stop-color="#fff2b3"/><stop offset=".18" stop-color="#b77a19"/><stop offset=".4" stop-color="#f5d472"/><stop offset=".65" stop-color="#9d6515"/><stop offset=".86" stop-color="#d6a643"/><stop offset="1" stop-color="#61400e"/>
+    </linearGradient>
+    <linearGradient id="light" x2="0" y2="1"><stop stop-color="#fff4bc"/><stop offset=".48" stop-color="#d7a33c"/><stop offset="1" stop-color="#83520f"/></linearGradient>
+    <linearGradient id="side"><stop stop-color="#f7db8a"/><stop offset=".4" stop-color="#b98527"/><stop offset=".7" stop-color="#f1ce68"/><stop offset="1" stop-color="#62380b"/></linearGradient>
+    <filter id="carving" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx=".8" dy="1.4" stdDeviation=".5" flood-color="#402404" flood-opacity=".9"/></filter>
+    <filter id="patina"><feTurbulence type="fractalNoise" baseFrequency=".5" numOctaves="3" seed="19"/><feColorMatrix type="saturate" values="0"/><feComposite in2="SourceGraphic" operator="in"/><feBlend in="SourceGraphic" mode="soft-light"/></filter>
+    <g id="scroll" fill="none" stroke="url(#light)" stroke-width="2.2" stroke-linecap="round" filter="url(#carving)">
+      <path d="M57 24C72 9 88 13 88 23C88 34 71 33 73 24C75 17 82 23 78 25M88 23C108 39 127 11 145 24M263 24C248 9 232 13 232 23C232 34 249 33 247 24C245 17 238 23 242 25M232 23C212 39 193 11 175 24"/>
+      <path d="M96 25Q101 9 112 15Q108 25 96 25M117 23Q129 32 138 27Q134 19 117 23M224 25Q219 9 208 15Q212 25 224 25M203 23Q191 32 182 27Q186 19 203 23" fill="url(#gold)" stroke-width=".9"/>
+      <path d="M160 10C156 15 146 15 146 23C146 32 155 30 160 36C165 30 174 32 174 23C174 15 164 15 160 10Z" fill="url(#light)" stroke="#845313" stroke-width="1"/>
+      <path d="M160 14V31M150 21Q158 22 160 31Q162 22 170 21M152 17Q158 19 160 31Q162 19 168 17" stroke="#8a5715" stroke-width=".9"/>
+    </g>
+    <g id="corner" fill="url(#light)" stroke="#805011" stroke-width=".9" filter="url(#carving)">
+      <path d="M12 12C27 7 41 15 43 28C34 24 28 26 26 35C21 26 13 25 12 12Z"/>
+      <path d="M16 16Q23 16 35 28M21 16Q27 18 26 24M17 21Q23 20 26 24" fill="none"/>
+      <path d="M13 33C14 45 31 51 36 40C40 30 28 27 28 34C28 39 34 37 32 34M33 13C45 14 51 31 40 36" fill="none" stroke="url(#light)" stroke-width="2.4"/>
+    </g>
+  </defs>
+  <rect x="1" y="1" width="318" height="318" rx="2" fill="url(#gold)" stroke="#4e310c" stroke-width="2"/>
+  <path d="M4 4H316L282 38H38Z" fill="url(#light)"/>
+  <path d="M4 4L38 38V282L4 316Z" fill="url(#side)"/>
+  <path d="M316 4V316L282 282V38Z" fill="url(#side)"/>
+  <path d="M4 316L38 282H282L316 316Z" fill="url(#gold)"/>
+  <rect x="8" y="8" width="304" height="304" fill="none" stroke="#6b4110" stroke-width="3"/>
+  <rect x="10" y="10" width="300" height="300" fill="none" stroke="#fbe298" stroke-width="1"/>
+  <rect x="36" y="36" width="248" height="248" fill="#8b601e" stroke="#5b360a" stroke-width="3"/>
+  <rect x="39" y="39" width="242" height="242" fill="url(#gold)" stroke="#ffe6a1" stroke-width="2"/>
+  <rect x="45" y="45" width="230" height="230" fill="#503711" stroke="#523207" stroke-width="3"/>
+  <rect x="48" y="48" width="224" height="224" fill="#ad7b2b" stroke="#f2ce79" stroke-width="1.5"/>
+  <g opacity=".16" filter="url(#patina)"><path d="M3 3H317V317H3ZM48 48V272H272V48Z" fill="#93641d" fill-rule="evenodd"/></g>
+  <use href="#scroll"/><use href="#scroll" transform="rotate(90 160 160)"/><use href="#scroll" transform="rotate(180 160 160)"/><use href="#scroll" transform="rotate(270 160 160)"/>
+  <use href="#corner"/><use href="#corner" transform="rotate(90 160 160)"/><use href="#corner" transform="rotate(180 160 160)"/><use href="#corner" transform="rotate(270 160 160)"/>
+</svg>
