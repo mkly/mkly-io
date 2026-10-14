@@ -5,42 +5,96 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#faf9f7" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#201f1d" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#171612">
     <link rel="icon" href="https://www.gravatar.com/avatar/07e3220cf9363022c87f2229435a559d?s=64">
     {% seo %}
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,700;1,700&amp;family=Bodoni+Moda:ital,wght@0,700;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" rel="stylesheet">
     <link href="/assets/main.css" rel="stylesheet">
+    <link href="/assets/home.css" rel="stylesheet">
 
     {% include ga.html %}
   </head>
 
-  <body class="no-js">
-    <div class="wrapper">
-      <h1 class="header">
-        {% include components/avatar.html %}
-        {% include components/description.html %}
-      </h1>
-      <ul class="links links--primary">
-        {% include components/link-github.html %}
-        {% include components/link-email.html %}
-        {% include components/link-twitter.html %}
-        {% include components/link-huggingface.html %}
-        {% include components/link-discord.html %}
-        {% include components/link-linkedin.html %}
-        {% include components/link-orcid.html %}
-      </ul>
-      <ul class="links links--secondary">
-        {% include components/link-thenetwork.html %}
-        {% include components/link-thelastsaas.html %}
-      </ul>
-    </div>
+  <body id="top">
+    <a class="skip-link" href="#projects">Skip to projects</a>
+    <main class="wrapper">
+      <nav class="anti-elsewhere" aria-label="Contact and profile links">
+        <h2>FIND ME HERE ↘</h2>
+        <ul class="links links--primary">
+          {% include components/link-email.html %}
+          {% include components/link-github.html %}
+          {% include components/link-twitter.html %}
+          {% include components/link-huggingface.html %}
+          {% include components/link-linkedin.html %}
+          {% include components/link-orcid.html %}
+        </ul>
+        <p class="anti-discord">Discord: <span>{{ site.discord_username }}</span></p>
+      </nav>
+      <header class="anti-masthead">
+        <p class="anti-address">mkly.io / SAN FRANCISCO / SOFTWARE ENGINEER / AI ENGINEER</p>
+        <h1 class="anti-name"><span>MIKE</span><span>LAY<span class="anti-period">.</span></span></h1>
+        <span class="anti-photo-reveal"><span class="anti-photo"><img src="https://www.gravatar.com/avatar/07e3220cf9363022c87f2229435a559d?s=240" alt="Mike Lay" width="150" height="150"></span></span>
+        <p class="anti-note">help me, I'm jobless :(</p>
+      </header>
+      <section class="anti-intro" aria-label="About Mike">
+        <p>I’m a software and AI engineer in San Francisco.<br>I build things. Some of them are <em>right here ↓</em></p>
+        <a class="anti-email" href="mailto:{{ site.email }}"><svg class="anti-mail-icon" viewBox="0 0 32 24" width="32" height="24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="1" width="30" height="22"/><path d="M2 2 16 13 30 2M2 22l10-10m18 10L20 12"/></svg> EMAIL ME!</a>
+      </section>
+      <section class="anti-projects" id="projects" aria-labelledby="projects-title">
+        <h2 id="projects-title">STUFF I’VE MADE<span aria-hidden="true">*</span></h2>
+        <p class="anti-footnote">* even more slop on <a href="https://github.com/{{ site.github_username }}">GitHub</a> : Help me out with a star?</p>
+        <article class="anti-project anti-project-saas">
+          <span class="anti-number" aria-hidden="true">01</span>
+          <div><h3><a href="https://thelastsaas.com">The Last SaaS</a></h3>
+          <p><span class="anti-halo">Do</span> all SaaS go to heaven? A headless SaaS for agents and assistants. <a href="https://github.com/mkly/thelastsaas">[source]</a></p></div>
+          <span class="anti-tag">DATA!<br>AGENTS!</span>
+        </article>
+        <article class="anti-project anti-project-poet">
+          <span class="anti-number" aria-hidden="true">02</span>
+          <div><h3><a href="https://github.com/mkly/pr-poet">PR Poet</a></h3>
+          <p>Your pull requests, in verse. A GitHub Action with a fine-tuned 0.6B Qwen model. <a href="https://huggingface.co/mkly/pr-poet-lora">[model]</a> <a href="https://github.com/mkly/pr-poet-training">[training repo]</a></p></div>
+          <span class="anti-tag">code → poetry</span>
+        </article>
+        <article class="anti-project anti-project-desktop">
+          <span class="anti-number" aria-hidden="true">03</span>
+          <div><h3><a href="https://github.com/mkly/agent-desktop">agent-desktop</a></h3>
+          <p>Headless Linux desktops for AI agents that need GUI apps. Especially when your agent browser keeps getting blocked by cloudflare.</p></div>
+          <span class="anti-tag">MORE AGENTS!</span>
+        </article>
+        <article class="anti-project anti-project-network">
+          <span class="anti-number" aria-hidden="true">04</span>
+          <div><h3><a href="https://thenetwork.fyi">the network</a></h3>
+          <p>A networking product built around an LLM-powered email agent.</p></div>
+          <span class="anti-tag">you’ve got mail.</span>
+        </article>
+        <article class="anti-project anti-project-ruffle">
+          <span class="anti-number" aria-hidden="true">05</span>
+          <div><h3><a href="https://helloruffle.com">Ruffle</a></h3>
+          <p>Sponsorship fundraising for animal rescues. Who doesn't love dogs?</p></div>
+        </article>
+        <aside class="anti-more" aria-labelledby="also-title">
+          <h3 id="also-title">also:</h3>
+          <ul>
+            <li><a href="https://github.com/mkly/jev-bisect">jev-bisect</a> — finding numeric answers with Jev, one higher/lower decision at a time.</li>
+            <li><a href="https://github.com/mkly/youtube-closed-captions">youtube-closed-captions</a> — a Python library for downloading YouTube subtitles.</li>
+            <li><a href="https://goinghome.streamlit.app/">Going Home</a> — picking someone up from a baseball game? XGBoostin' <a href="https://github.com/mkly/goinghome">[source]</a></li>
+            <li><a href="https://github.com/mkly/stove-knobs">stove-knobs</a> — 3D print your stove knobs! If you happen to have my weird SF apartment discontinued stove...</li>
+            <li>I have a commit in a 25 year old email client - <a href="https://git.claws-mail.org/?p=claws.git;a=commit;h=f97af332e3c40b94a4acdf11de49f389da9d9b07">[claws mail]</a></li>
+            <li>I rebuilt the <a href="https://crfm.stanford.edu/helm/">Holistic Evaluation of Language Models (HELM) frontend</a> in React and got an <a href="https://orcid.org/{{ site.orcid_id }}">ORCID</a>!</li>
+          </ul>
+          <a href="https://github.com/mkly?tab=repositories">more slop right this way →</a>
+        </aside>
+      </section>
+      <footer class="anti-footer"><span class="anti-sf" role="img" aria-label="Love San Francisco"><canvas x-mkly-heart width="34" height="34" aria-hidden="true">♥</canvas> SF</span><p>You have reached the bottom of the website.<br><a href="#top">Back to the top ↑</a> &nbsp; / &nbsp; <a href="mailto:{{ site.email }}">Contact the webmaster</a></p><span class="anti-badge">MADE WITH JEKYLL<br>FROM A DECADE AGO</span></footer>
+    </main>
+    <section class="anti-skyline" aria-label="San Francisco playground">
+      <canvas tabindex="0" aria-label="Interactive San Francisco. Drag or use arrow keys to look around. Hover over the blimp to wobble it; click or tap it to crash into the water. Press C to crash the blimp. Press R to reset the view."></canvas>
+    </section>
     {{ content }}
-    {% include components/sub-description.html %}
-    <script async="true" src="/assets/bundle.js"></script>
     <script defer src="/assets/heart.js"></script>
+    <script defer src="/assets/skyline.js"></script>
   </body>
 
 </html>
