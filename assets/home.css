@@ -91,6 +91,8 @@ a:focus-visible { outline: 3px double #e2ba4a; outline-offset: 4px; }
 .anti-elsewhere .links--primary > .links:first-child .links--link { color: #e4edaa; background: linear-gradient(142deg, #8b2813 18%, #6d1752 65%, #343a05 100%); }
 .anti-elsewhere .links--primary [x-mkly-link-github] .links--link { position: relative; padding: 4px 12px 5px; border: 3px double #d0db58; background: linear-gradient(115deg, #532378 10%, #244ba0 65%, #196942); box-shadow: 4px 4px 0 #c44b16; color: #e8d9fa; font-family: var(--font-serif); font-style: italic; letter-spacing: .025em; text-decoration: none; transform: rotate(-3deg); }
 .anti-elsewhere .links--primary [x-mkly-link-github] .links--link::after { content: '\2632'; position: absolute; right: -9px; top: -13px; color: #d0db58; font: 22px/1 var(--font-serif); text-shadow: 2px 2px #532378; }
+.anti-elsewhere .links--primary [x-mkly-link-github] .links--icon { filter: drop-shadow(4px 4px 0 #c44b16); animation: github-logo-shadow 3s ease-in-out infinite alternate; }
+@keyframes github-logo-shadow { from { filter: drop-shadow(4px 4px 0 #c44b16); } to { filter: drop-shadow(-4px -4px 0 #c44b16); } }
 .anti-elsewhere .links--primary [x-mkly-link-github] .links--text { display: inline-block; color: #edfb81; font-size: 1.2em; font-weight: 700; text-decoration: underline wavy rgb(68 138 49); text-underline-offset: 3px; transform: rotate(4deg); }
 .anti-elsewhere .links--primary > .links:nth-child(3) .links--link { color: #291244; background: #bfc52a; }
 .anti-elsewhere .links--primary > .links:nth-child(4) .links--link { color: #c5e5db; background: #6a194e; }
