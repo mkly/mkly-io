@@ -1,19 +1,20 @@
 import {
-  CylinderGeometry, Group, Mesh,
+  Group, Mesh,
   MeshBasicMaterial, RingGeometry, SphereGeometry, Vector3,
 } from 'three';
 
-export function createSkylineLife(scene, cube, material) {
+export function createSkylineLife(scene, roundedBox, material) {
   function part(parent, x, y, z, width, height, depth, color) {
-    const result = new Mesh(cube, material(color));
+    const result = new Mesh(roundedBox(width, height, depth), material(color));
     result.position.set(x, y, z);
-    result.scale.set(width, height, depth);
     parent.add(result);
     return result;
   }
 
-  const wheelGeometry = new CylinderGeometry(.29, .29, .2, 8);
-  const roofSensorGeometry = new CylinderGeometry(.27, .3, .35, 8);
+  const wheelGeometry = new SphereGeometry(.29, 20, 12);
+  wheelGeometry.scale(1, .35, 1);
+  const roofSensorGeometry = new SphereGeometry(.3, 20, 12);
+  roofSensorGeometry.scale(1, .58, 1);
   const colors = ['#c93032', '#f5f3eb', '#c5c8ce', '#f5f3eb'];
   const cars = colors.map((color, index) => {
     const car = new Group();
@@ -58,20 +59,22 @@ export function createSkylineLife(scene, cube, material) {
   });
 
   // Reuse a bounded pool of rings and droplets instead of allocating per crash.
-  const ringGeometry = new RingGeometry(.83, 1, 24);
-  const dropletGeometry = new SphereGeometry(.18, 5, 4);
+  const ringGeometry = new RingGeometry(.83, 1, 48);
+  const dropletGeometry = new SphereGeometry(.18, 12, 8);
+  // Keep the spray bright even in the nighttime lighting and fog.
+  const dropletMaterial = new MeshBasicMaterial({ color: '#c5e8ef', fog: false });
   const splashes = Array.from({ length: 4 }, () => {
     const group = new Group();
     const rings = [0, 1].map(() => {
       const ring = new Mesh(ringGeometry, new MeshBasicMaterial({
-        color: '#b9e4e7', transparent: true, opacity: 1, depthWrite: false,
+        color: '#b9e4e7', transparent: true, opacity: 1, depthWrite: false, fog: false,
       }));
       ring.rotation.x = -Math.PI / 2;
       group.add(ring);
       return ring;
     });
     const droplets = Array.from({ length: 12 }, (_, index) => {
-      const drop = new Mesh(dropletGeometry, material('#c5e8ef'));
+      const drop = new Mesh(dropletGeometry, dropletMaterial);
       group.add(drop);
       return { mesh: drop, angle: index * Math.PI / 6, speed: 2 + index % 3, lift: 4 + index % 4 };
     });
@@ -91,12 +94,12 @@ export function createSkylineLife(scene, cube, material) {
   const plane = new Group();
   plane.name = 'mouse-blimp';
   plane.rotation.order = 'YXZ';
-  const envelope = new Mesh(new SphereGeometry(1, 16, 10), material('#e2d3a8'));
+  const envelope = new Mesh(new SphereGeometry(1, 40, 24), material('#f2eedc'));
   envelope.scale.set(6.3, 2.2, 2.2);
   plane.add(envelope);
-  part(plane, -4.6, 1.25, 0, 2.2, 2, .2, '#9f87c4');
-  part(plane, -4.6, 0, 0, 2.2, .2, 5.7, '#9f87c4');
-  part(plane, .4, -2.1, 0, 2.4, .65, 1.15, '#bb713b');
+  part(plane, -4.6, 1.25, 0, 2.2, 2, .2, '#a891ff');
+  part(plane, -4.6, 0, 0, 2.2, .2, 5.7, '#a891ff');
+  part(plane, .4, -2.1, 0, 2.4, .65, 1.15, '#ff4719');
   part(plane, .65, -1.85, 0, 1.8, .42, 1.2, '#35485b');
   for (const side of [-1, 1]) {
     part(plane, .7, -2.05, side * .59, 1.8, .28, .04, '#9cd4cf');

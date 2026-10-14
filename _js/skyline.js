@@ -1,11 +1,14 @@
 import {
-  AmbientLight, BoxGeometry, BufferGeometry, Color, ConeGeometry,
-  CylinderGeometry, DirectionalLight, Fog, InstancedMesh, LineBasicMaterial,
+  AmbientLight, BufferGeometry, CapsuleGeometry, Color,
+  DirectionalLight, Fog, InstancedMesh, LineBasicMaterial,
   LineSegments, Matrix4, Mesh, MeshLambertMaterial, Object3D, OrthographicCamera,
-  Plane, PlaneGeometry, Quaternion, Ray, Raycaster, Scene, ShaderMaterial, Sphere, SphereGeometry, Vector2, Vector3,
+  Plane, PlaneGeometry, PointLight, Quaternion, Ray, Raycaster, Scene, ShaderMaterial, Sphere, SphereGeometry, Vector2, Vector3,
   WebGLRenderer, WebGLRenderTarget,
 } from 'three';
+import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+import { mergeVertices } from 'three/addons/utils/BufferGeometryUtils.js';
 import { createSkylineLife } from './skyline-life';
+import { createRollingFog } from './skyline-fog';
 // The homepage shares one Three.js bundle between the heart and skyline.
 import './heart';
 import './ghost';
@@ -23,26 +26,39 @@ function init(container) {
   }
   renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
   const scene = new Scene();
-  scene.background = new Color('#1b2335');
-  scene.fog = new Fog('#1b2335', 115, 220);
+  scene.background = new Color('#171612');
+  scene.fog = new Fog('#0b1221', 42, 155);
   const camera = new OrthographicCamera(-60, 60, 22, -22, 1, 300);
+  camera.zoom = 3.5;
   camera.position.set(42, 29, 78);
   camera.lookAt(0, 5, 0);
-  scene.add(new AmbientLight('#adc4e6', 1.8));
-  const sun = new DirectionalLight('#ffd5aa', 2.4);
-  sun.position.set(-40, 50, 40);
-  scene.add(sun);
+  scene.add(new AmbientLight('#7b8cbd', .24));
+  const moon = new DirectionalLight('#ab9aff', .85);
+  moon.position.set(-40, 50, -30);
+  scene.add(moon);
+  const greenGlow = new PointLight('#75ffbd', 180, 80, 2);
+  greenGlow.position.set(-18, 9, 12);
+  scene.add(greenGlow);
+  const violetGlow = new PointLight('#b15cff', 140, 65, 2);
+  violetGlow.position.set(30, 12, -5);
+  scene.add(violetGlow);
 
   const materials = new Map();
   function material(color) {
-    if (!materials.has(color)) materials.set(color, new MeshLambertMaterial({ color, flatShading: true }));
+    if (!materials.has(color)) materials.set(color, new MeshLambertMaterial({ color, flatShading: false }));
     return materials.get(color);
   }
-  const cube = new BoxGeometry(1, 1, 1);
+  const roundedBoxes = new Map();
+  function roundedBox(width, height, depth) {
+    const key = `${width}/${height}/${depth}`;
+    if (!roundedBoxes.has(key)) {
+      roundedBoxes.set(key, new RoundedBoxGeometry(width, height, depth, 4, Math.min(width, height, depth) * .32));
+    }
+    return roundedBoxes.get(key);
+  }
   function box(x, y, z, width, height, depth, color) {
-    const mesh = new Mesh(cube, material(color));
+    const mesh = new Mesh(roundedBox(width, height, depth), material(color));
     mesh.position.set(x, y, z);
-    mesh.scale.set(width, height, depth);
     scene.add(mesh);
     return mesh;
   }
@@ -59,14 +75,14 @@ function init(container) {
     return result;
   }
 
-  // Broad faceted geometry, like an early VRML scene.
-  box(0, -1, 0, 230, 1.5, 180, '#244956');
-  box(15, -.1, -10, 72, 1, 25, '#4b5355');
-  box(21, .2, 3, 39, .8, 5, '#7f7766');
-  for (let i = 0; i < 3; i++) box(16 + i * 8, .1, 7, 2.2, .6, 9, '#8f8067');
-  const hill = mesh(new SphereGeometry(1, 9, 5), '#455045', -9, 0, -13);
+  // Overly rounded 3D clip art using the clashing colors of the project panels.
+  box(0, -1, 0, 230, 1.5, 180, '#02091c');
+  box(15, -.1, -10, 72, 1, 25, '#39255e');
+  box(21, .2, 3, 39, .8, 5, '#bfc52a');
+  for (let i = 0; i < 3; i++) box(16 + i * 8, .1, 7, 2.2, .6, 9, '#e2ba4a');
+  const hill = mesh(new SphereGeometry(1, 32, 20), '#8cc800', -9, 0, -13);
   hill.scale.set(14, 5, 11);
-  const farHill = mesh(new SphereGeometry(1, 8, 4), '#343f40', -53, -1, -7);
+  const farHill = mesh(new SphereGeometry(1, 32, 20), '#144b22', -53, -1, -7);
   farHill.scale.set(22, 7, 13);
 
   let seed = 96;
@@ -75,7 +91,7 @@ function init(container) {
     return seed / 4294967296;
   }
   const windows = [];
-  const buildingColors = ['#7b8998', '#a49a82', '#63747c', '#c0b299', '#8d858a'];
+  const buildingColors = ['#a891ff', '#8cc800', '#d295ed', '#bfc52a', '#7142a0'];
   for (let row = 0; row < 3; row++) {
     for (let col = 0; col < 9; col++) {
       const x = 2 + col * 4.7;
@@ -85,7 +101,7 @@ function init(container) {
       const width = 2.6 + random();
       const depth = 3.4;
       box(x, height / 2, z, width, height, depth, buildingColors[(col + row * 2) % buildingColors.length]);
-      if (col % 3 === 0) box(x, height + .5, z, width * .65, 1, 2.2, '#65717d');
+      if (col % 3 === 0) box(x, height + .5, z, width * .65, 1, 2.2, '#39255e');
       for (let floor = 1; floor < height - .5; floor += 1.3) {
         for (let column = -1; column <= 1; column++) {
           if (random() > .3) windows.push([x + column * .8, floor, z + depth / 2 + .015]);
@@ -93,7 +109,10 @@ function init(container) {
       }
     }
   }
-  const litWindows = new InstancedMesh(new PlaneGeometry(.35, .55), material('#e5cb81'), windows.length);
+  const windowGeometry = new RoundedBoxGeometry(1, 1, 1, 3, .3);
+  windowGeometry.scale(.35, .55, .04);
+  const windowMaterial = new MeshLambertMaterial({ color: '#fff2b8', emissive: '#ffd478', emissiveIntensity: .8 });
+  const litWindows = new InstancedMesh(windowGeometry, windowMaterial, windows.length);
   const dummy = new Object3D();
   windows.forEach((position, i) => {
     dummy.position.set(...position);
@@ -103,25 +122,38 @@ function init(container) {
   scene.add(litWindows);
 
   // Transamerica Pyramid and Coit Tower anchor the pre-2000 skyline.
-  const pyramid = mesh(new ConeGeometry(4, 24, 4), '#d1c8ae', 14, 12, -3);
-  pyramid.rotation.y = Math.PI / 4;
-  box(14, 1, -3, 5.8, 2, 5.8, '#b4b5ac');
-  box(14, 24.5, -3, .16, 2, .16, '#dedbcd');
+  const pyramidShape = new RoundedBoxGeometry(1, 1, 1, 6, .2);
+  const vertices = pyramidShape.attributes.position;
+  for (let i = 0; i < vertices.count; i++) {
+    const taper = 1 - (vertices.getY(i) + .5) * .98;
+    vertices.setXYZ(i, vertices.getX(i) * taper * 5.66, vertices.getY(i) * 24, vertices.getZ(i) * taper * 5.66);
+  }
+  // Weld the deformed corners so their lighting stays smooth across faces.
+  pyramidShape.deleteAttribute('normal');
+  pyramidShape.deleteAttribute('uv');
+  const pyramidGeometry = mergeVertices(pyramidShape);
+  pyramidGeometry.computeVertexNormals();
+  pyramidShape.dispose();
+  mesh(pyramidGeometry, '#f2eedc', 14, 12, -3);
+  box(14, 1, -3, 5.8, 2, 5.8, '#a891ff');
+  box(14, 24.5, -3, .16, 2, .16, '#f2eedc');
   for (let y = 3; y < 22; y += 1.5) {
     const width = 5.66 * (1 - y / 24);
-    box(14, y, -3, width + .06, .09, width + .06, '#5d6877');
+    box(14, y, -3, width + .06, .09, width + .06, '#39255e');
   }
-  mesh(new CylinderGeometry(.9, 1.1, 6.5, 10), '#c0bbaa', -8, 7, -12);
-  mesh(new CylinderGeometry(1.1, .9, 1, 10), '#d5caae', -8, 10.4, -12);
-  mesh(new CylinderGeometry(.72, .72, .3, 10), '#3b4653', -8, 11, -12);
+  mesh(new CapsuleGeometry(1, 4.5, 6, 24), '#e2ba4a', -8, 7, -12);
+  const crown = mesh(new SphereGeometry(1, 24, 16), '#f2eedc', -8, 10.4, -12);
+  crown.scale.set(1.1, .5, 1.1);
+  const roof = mesh(new SphereGeometry(1, 24, 16), '#39255e', -8, 11, -12);
+  roof.scale.set(.72, .15, .72);
 
   // Golden Gate deck, paired tower legs, suspension cables and hangers.
-  box(-36, 3.2, 6, 55, .65, 3.5, '#b74227');
-  box(-36, 3.58, 6, 55, .1, 2.7, '#303235');
+  box(-36, 3.2, 6, 55, .65, 3.5, '#ff4719');
+  box(-36, 3.58, 6, 55, .1, 2.7, '#39255e');
   for (const x of [-48, -27]) {
-    for (const z of [4.2, 7.8]) box(x, 8, z, .9, 16, .9, '#c64b2a');
-    for (const y of [5, 9.5, 14.4]) box(x, y, 6, 1, .65, 4.5, '#bd3d25');
-    box(x, .3, 6, 3, 1, 6, '#657178');
+    for (const z of [4.2, 7.8]) box(x, 8, z, .9, 16, .9, '#ff4719');
+    for (const y of [5, 9.5, 14.4]) box(x, y, 6, 1, .65, 4.5, '#ed6200');
+    box(x, .3, 6, 3, 1, 6, '#7142a0');
   }
   const cablePoints = [];
   function cableHeight(x) {
@@ -135,7 +167,7 @@ function init(container) {
       if (x % 2 === 0) cablePoints.push([x, 3.7, z], [x, cableHeight(x), z]);
     }
   }
-  lines(cablePoints, '#f5834b');
+  lines(cablePoints, '#ff8b39');
 
   const ripples = [];
   for (let i = 0; i < 65; i++) {
@@ -143,8 +175,10 @@ function init(container) {
     const z = random() * 48 + 10;
     ripples.push([x, -.2, z], [x + 1 + random() * 3, -.2, z]);
   }
-  lines(ripples, '#527e87');
-  const life = createSkylineLife(scene, cube, material);
+  lines(ripples, '#253756');
+  const life = createSkylineLife(scene, roundedBox, material);
+  const rollingFog = createRollingFog(scene);
+  rollingFog.update(0, camera);
   const canvas = renderer.domElement;
   const defaultYaw = Math.atan2(42, 78);
   const defaultPitch = Math.atan2(24, Math.hypot(42, 78));
@@ -162,7 +196,7 @@ function init(container) {
     camera.updateMatrixWorld();
   }
 
-  // Distress the skyline's rendered image, without changing the separate heart.
+  // Blend the skyline into the page without dithering or scanlines.
   const target = new WebGLRenderTarget(1, 1, { samples: 2 });
   const screenScene = new Scene();
   const screenCamera = new OrthographicCamera(-1, 1, 1, -1, 0, 1);
@@ -185,26 +219,14 @@ function init(container) {
       uniform vec2 uResolution;
       varying vec2 vUv;
 
-      float hash(float n) {
-        return fract(sin(n * 127.1) * 43758.5453);
-      }
-
-      float bayer2(vec2 p) {
-        p = mod(floor(p), 2.0);
-        return 2.0 * p.x + 3.0 * p.y - 4.0 * p.x * p.y;
-      }
-
       void main() {
         vec3 color = texture2D(uScene, vUv).rgb;
-        // Quantize display colors, rather than crushing the scene's linear light.
         color = linearToOutputTexel(vec4(color, 1.0)).rgb;
-        vec2 cell = floor(vUv * uResolution / 2.0);
-        float threshold = (4.0 * bayer2(cell) + bayer2(floor(cell / 2.0)) + 0.5) / 16.0;
-        vec3 levels = vec3(6.0, 7.0, 5.0);
-        color = floor(color * levels + threshold) / levels;
-        float scanline = mod(floor(vUv.y * uResolution.y), 3.0);
-        color *= mix(0.88, 1.0, step(1.0, scanline));
-        color += (hash(dot(cell, vec2(17.0, 59.0))) - 0.5) * 0.025;
+        vec3 pageColor = vec3(23.0, 22.0, 18.0) / 255.0;
+        float sides = mix(0.04, 0.12, smoothstep(400.0, 1000.0, uResolution.x));
+        float fade = smoothstep(0.0, sides, vUv.x) * smoothstep(0.0, sides, 1.0 - vUv.x);
+        fade *= smoothstep(0.0, 0.28, vUv.y) * smoothstep(0.0, 0.12, 1.0 - vUv.y);
+        color = mix(pageColor, color, fade);
         gl_FragColor = vec4(clamp(color, 0.0, 1.0), 1.0);
       }
     `,
@@ -245,9 +267,9 @@ function init(container) {
   function tick(now) {
     if (now - last > 40) {
       const delta = Math.min((now - last) / 1000, .1);
-      if (!drag) yaw = (yaw + delta * .045) % (Math.PI * 2);
       life.update(delta);
       updateCamera();
+      rollingFog.update(delta, camera);
       updateHover();
       renderFrame();
       last = now;
