@@ -9,9 +9,10 @@ import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.j
 import { mergeVertices } from 'three/addons/utils/BufferGeometryUtils.js';
 import { createSkylineLife } from './skyline-life';
 import { createRollingFog } from './skyline-fog';
-// The homepage shares one Three.js bundle between the heart and skyline.
+// All homepage graphics share one asynchronously loaded Three.js bundle.
 import './heart';
 import './ghost';
+import './star';
 
 const container = document.querySelector('.anti-skyline');
 if (container) init(container);

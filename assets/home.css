@@ -52,6 +52,11 @@ a:focus-visible { outline: 3px double #e2ba4a; outline-offset: 4px; }
 .anti-projects h2 { width: fit-content; margin: 26px 0 18px 3%; color: #afc5e8; font: italic 900 clamp(25px, 5vw, 54px)/1 var(--font-sans); letter-spacing: -.06em; transform: rotate(-2deg); }
 .anti-projects h2 span { display: inline-block; color: #ff4719; font-size: 1.6em; vertical-align: -.15em; line-height: .5; }
 .anti-footnote { display: table; margin: -4px 0 26px 43%; padding: 3px 7px; color: #ff4719; background: #302541; font: 15px 'Courier New', monospace; transform: rotate(3deg); }
+.anti-star { position: relative; display: inline-block; width: 2em; height: 1.4em; padding: 0; margin: -.2em .1em; border: 0; background: none; color: inherit; font: inherit; vertical-align: middle; cursor: pointer; touch-action: manipulation; }
+.anti-star canvas { display: none; position: absolute; left: 50%; top: 50%; width: 72px; height: 72px; transform: translate(-50%, -50%); pointer-events: none; }
+.anti-star.is-ready canvas { display: block; }
+.anti-star.is-ready .anti-star-fallback { visibility: hidden; }
+.anti-star:focus-visible { outline: 2px solid #ffd56a; outline-offset: 3px; }
 .anti-project { position: relative; display: flex; align-items: baseline; gap: 18px; padding: 16px 10px; border-bottom: 3px double #68666c; }
 .anti-project > div { min-width: 0; flex: 1; }
 .anti-number { position: relative; top: -5px; padding: 3px; border: 1px solid #bdb7b0; color: #bdb7b0; font: 13px 'Courier New', monospace; transform: rotate(-14deg); }
