@@ -6,34 +6,11 @@ import {
   WebGLRenderer, WebGLRenderTarget,
 } from 'three';
 import { createSkylineLife } from './skyline-life';
+// The homepage shares one Three.js bundle between the heart and skyline.
+import './heart';
 
 const container = document.querySelector('.anti-skyline');
-initScrollJostle();
 if (container) init(container);
-
-function initScrollJostle() {
-  const projects = document.querySelector('.anti-projects');
-  if (!projects) return;
-  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-  let visible = false;
-  let settle;
-  function stop() {
-    clearTimeout(settle);
-    projects.classList.remove('is-scrolling');
-  }
-  new IntersectionObserver(([entry]) => {
-    visible = entry.isIntersecting;
-    if (!visible) stop();
-  }).observe(projects);
-  window.addEventListener('scroll', () => {
-    if (!visible || reducedMotion.matches) return;
-    projects.classList.add('is-scrolling');
-    clearTimeout(settle);
-    settle = setTimeout(stop, 160);
-  }, { passive: true });
-  reducedMotion.addEventListener('change', stop);
-  document.addEventListener('visibilitychange', () => { if (document.hidden) stop(); });
-}
 
 function init(container) {
   let renderer;

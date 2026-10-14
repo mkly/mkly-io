@@ -109,10 +109,6 @@ a:focus-visible { outline: 3px double #e2ba4a; outline-offset: 4px; }
 .anti-skyline canvas { display: block; width: 100%; height: 100%; cursor: grab; touch-action: pan-y; }
 .anti-skyline canvas:active { cursor: grabbing; }
 .anti-skyline canvas:focus-visible { outline: 3px double #e2ba4a; outline-offset: -4px; }
-.anti-projects.is-scrolling .anti-project { animation: scroll-jostle .28s linear infinite; }
-.anti-projects.is-scrolling .anti-project:nth-of-type(even) { animation-direction: reverse; }
-@keyframes scroll-jostle { 0%, 100% { translate: 0 0; } 25% { translate: 1px -1px; } 75% { translate: -1px 1px; } }
-@media (prefers-reduced-motion: reduce) { .anti-projects.is-scrolling .anti-project { animation: none; } }
 @media (max-width: 600px) {
   .anti-skyline { height: 270px; }
   .wrapper { width: calc(100% - 28px); margin: 16px auto; }
