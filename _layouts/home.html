@@ -21,6 +21,36 @@
     <a class="skip-link" href="#projects">Skip to projects</a>
     <main class="wrapper">
       <nav class="anti-elsewhere" aria-label="Contact and profile links">
+        <svg class="anti-cork-board" viewBox="0 0 1000 260" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="board-cork" x1="0" y1="0" x2="1" y2="1">
+              <stop stop-color="#a891ff"/><stop offset=".5" stop-color="#7560b1"/><stop offset="1" stop-color="#39255e"/>
+            </linearGradient>
+            <filter id="board-cork-grain" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+              <feTurbulence type="fractalNoise" baseFrequency=".65" numOctaves="3" seed="12" stitchTiles="stitch" result="noise"/>
+              <feColorMatrix in="noise" type="saturate" values="0" result="grain"/>
+              <feBlend in="SourceGraphic" in2="grain" mode="soft-light"/>
+            </filter>
+            <linearGradient id="board-wood" x1="0" y1="0" x2=".3" y2="1">
+              <stop stop-color="#ff4719"/><stop offset=".3" stop-color="#c53914"/><stop offset=".65" stop-color="#ff4719"/><stop offset="1" stop-color="#a32d11"/>
+            </linearGradient>
+            <linearGradient id="board-inset" x1="0" y1="0" x2="0" y2="1">
+              <stop stop-color="#ff4719"/><stop offset="1" stop-color="#a891ff"/>
+            </linearGradient>
+            <radialGradient id="board-background" cx=".15" cy=".05" r="1.1">
+              <stop stop-color="#397d52"/><stop offset=".4" stop-color="#185a43"/><stop offset=".75" stop-color="#124951"/><stop offset="1" stop-color="#273244"/>
+            </radialGradient>
+            <pattern id="board-dither" width="4" height="4" patternUnits="userSpaceOnUse">
+              <circle cx="1" cy="1" r=".6" fill="#a3d38b"/>
+              <circle cx="3" cy="3" r=".6" fill="#071b21"/>
+            </pattern>
+          </defs>
+          <path d="M18 260V12H982V260H969V25H31V260Z" fill="url(#board-cork)" filter="url(#board-cork-grain)"/>
+          <path d="M18 260V12H982V260" fill="none" stroke="url(#board-wood)" stroke-width="6" vector-effect="non-scaling-stroke"/>
+          <path d="M31 25H969V260H31Z" fill="url(#board-background)"/>
+          <path d="M31 25H969V260H31Z" fill="url(#board-dither)" opacity=".32"/>
+          <path d="M31 260V25H969V260" fill="none" stroke="url(#board-inset)" stroke-width="2" vector-effect="non-scaling-stroke"/>
+        </svg>
         <h2>FIND ME HERE ↘</h2>
         <ul class="links links--primary">
           {% include components/link-email.html %}
@@ -65,7 +95,7 @@
         </article>
         <article class="anti-project anti-project-network">
           <span class="anti-number" aria-hidden="true">04</span>
-          <div><h3><a href="https://thenetwork.fyi">join@thenetwork.fyi</a></h3>
+          <div><h3><a href="https://thenetwork.fyi">join@<wbr>thenetwork.fyi</a></h3>
             <p>The <em>most exclusive</em> agent driven email network. <a href="https://github.com/thenetwork/thenetwork">[source]</a></p>
           </div>
           <span class="anti-tag">you’ve got mail.</span>
