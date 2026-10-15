@@ -75,6 +75,7 @@ function init(nav) {
       Bodies.rectangle(width + 40, height / 2, 80, height + 160, wall),
     ]);
     paint();
+    document.documentElement.classList.remove('nav-pending');
   }
 
   function confine(link) {
