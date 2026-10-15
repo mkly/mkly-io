@@ -5,6 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --progress --colors --watch",
+    "build-nav": "esbuild _js/nav.js --bundle --minify --format=iife --outfile=assets/nav.js",
+    "watch-nav": "npm run build-nav -- --watch=forever",
     "build-heart": "esbuild _js/heart.js --bundle --minify --format=iife --outfile=assets/heart.js",
     "build-skyline": "esbuild _js/skyline.js --bundle --minify --format=iife --outfile=assets/skyline.js",
     "watch-skyline": "npm run build-skyline -- --watch=forever",
@@ -27,6 +29,7 @@
   },
   "devDependencies": {
     "esbuild": "^0.28.2",
+    "matter-js": "0.20.0",
     "three": "^0.185.1"
   }
 }

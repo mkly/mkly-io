@@ -74,7 +74,7 @@
       </section>
       <section class="anti-projects" id="projects" aria-labelledby="projects-title">
         <h2 id="projects-title">STUFF I’VE MADE<span aria-hidden="true">*</span></h2>
-        <p class="anti-footnote">* even more slop on <a href="https://github.com/{{ site.github_username }}">GitHub</a> : Help me out with a <a class="anti-star" href="https://github.com/{{ site.github_username }}" aria-label="star" title="Visit my GitHub"><span class="anti-star-fallback" aria-hidden="true">star</span><canvas width="72" height="72" aria-hidden="true"></canvas></a>?</p>
+        <p class="anti-footnote">* even more slop on <a href="https://github.com/{{ site.github_username }}">GitHub</a> : <span class="anti-star-prompt">Help me out with a <a class="anti-star" href="https://github.com/{{ site.github_username }}" aria-label="star" title="Visit my GitHub"><span class="anti-star-fallback" aria-hidden="true">star</span><canvas width="72" height="72" aria-hidden="true"></canvas></a>?</span></p>
         <article class="anti-project anti-project-saas">
           {% include components/lastsaas-sky.html %}
           <span class="anti-number" aria-hidden="true">01</span>
@@ -128,12 +128,13 @@
           <a href="https://github.com/mkly?tab=repositories">more slop right this way →</a>
         </aside>
       </section>
-      <footer class="anti-footer"><span class="anti-sf" role="img" aria-label="Love San Francisco"><canvas x-mkly-heart width="34" height="34" aria-hidden="true">♥</canvas> SF</span><p>You have reached the bottom of the website.<br><a href="#top">Back to the top ↑</a> &nbsp; / &nbsp; <a href="mailto:{{ site.email }}">Contact the webmaster</a></p><span class="anti-badge">MADE WITH JEKYLL<br>FROM A DECADE AGO</span></footer>
+      <footer class="anti-footer"><span class="anti-sf" role="img" aria-label="Love San Francisco"><canvas x-mkly-heart width="34" height="34" aria-hidden="true">♥</canvas> SF</span><p>You have reached the bottom of the website.<br><a href="#top">Back to the top ↑</a> &nbsp; / &nbsp; <a href="mailto:{{ site.email }}">Contact the webmaster</a></p><span class="anti-badge">MADE WITH JEKYLL<br>FROM A DECADE AGO<img class="anti-badge-ruby" src="/assets/ruby-logo.png" width="38" height="38" alt="" decoding="async"></span></footer>
     </main>
     <section class="anti-skyline" aria-label="San Francisco playground">
       <canvas tabindex="0" aria-label="Interactive San Francisco. Drag or use arrow keys to look around. Hover over the blimp to wobble it; click or tap it to crash into the water. Press C to crash the blimp. Press R to reset the view."></canvas>
     </section>
     {{ content }}
+    <script defer src="/assets/nav.js"></script>
     <script defer src="/assets/footer-loader.js"></script>
   </body>
 
