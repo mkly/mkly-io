@@ -157,7 +157,6 @@ a:focus-visible { outline: 3px double #e2ba4a; outline-offset: 4px; }
 .anti-cork-board { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; overflow: visible; pointer-events: none; filter: drop-shadow(2px 6px 5px #090b0880); mask-image: linear-gradient(to bottom, #000 45%, #0009 72%, transparent 100%); }
 .anti-elsewhere h2 { display: table; margin: 0 0 12px 9px; padding: 3px 6px; color: #211c14; background: #bfc52a; font: bold 18px 'Courier New', monospace; transform: rotate(-4deg); }
 .anti-elsewhere .links--primary { margin: 12px 0; gap: 9px 14px; }
-.nav-pending .anti-elsewhere .links--primary > .links { visibility: hidden; }
 .anti-elsewhere .links--link { font-size: clamp(22px, 2.8vw, 32px); font-weight: 800; padding: 6px 8px; transition: color 120ms, background-color 120ms, box-shadow 120ms, transform 120ms; }
 .anti-elsewhere .links--primary > .links:first-child .links--link { color: #e4edaa; background: linear-gradient(142deg, #8b2813 18%, #6d1752 65%, #343a05 100%); }
 .anti-elsewhere .links--primary [x-mkly-link-github] .links--link { position: relative; padding: 4px 12px 5px; border: 3px double #d0db58; background: linear-gradient(115deg, #532378 10%, #244ba0 65%, #196942); box-shadow: 4px 4px 0 #c44b16; color: #e8d9fa; font-family: var(--font-serif); font-style: italic; letter-spacing: .025em; text-decoration: none; transform: rotate(-3deg); }
@@ -180,8 +179,6 @@ a:focus-visible { outline: 3px double #e2ba4a; outline-offset: 4px; }
 .anti-elsewhere .links--primary [x-mkly-link-orcid] .links--text { overflow: visible; white-space: nowrap; }
 .anti-elsewhere .links--primary > .links:nth-child(3) { transform: rotate(-4deg); }
 .anti-elsewhere .links--primary > .links:nth-child(4) { transform: rotate(3deg); }
-.anti-elsewhere .links--primary.anti-nav-loose { position: relative; display: block; isolation: isolate; clip-path: inset(-28px -8px -10px); }
-.anti-elsewhere .anti-nav-loose > .links { position: absolute; top: 0; left: 0; margin: 0; will-change: transform; }
 .anti-discord { margin: 5px 0 20px; font: 19px/1.3 var(--font-serif); letter-spacing: .025em; }
 .anti-discord span { display: inline-block; color: #d8df83; font-style: italic; font-weight: 700; text-shadow: 1px 1px #6f4481; transform: rotate(-3deg); }
 .anti-footer { display: flex; align-items: center; justify-content: space-between; gap: 20px; border-top: 5px double #ff4719; padding: 15px 0; }
@@ -201,7 +198,6 @@ a:focus-visible { outline: 3px double #e2ba4a; outline-offset: 4px; }
   .anti-skyline { height: 270px; }
   .wrapper { width: calc(100% - 28px); margin: 8px auto; }
   .anti-elsewhere { padding: 40px 8% 22px; margin-bottom: 16px; }
-  .anti-elsewhere .links--primary { display: grid; grid-template-columns: minmax(0, 1fr); justify-items: start; align-items: center; gap: 12px 14px; }
   .anti-elsewhere .links--primary > .links { max-width: 100%; }
   .anti-elsewhere .links--primary [x-mkly-link-orcid] .links--text { white-space: normal; }
   .anti-address { font-size: 10px; }
@@ -236,9 +232,6 @@ a:focus-visible { outline: 3px double #e2ba4a; outline-offset: 4px; }
   .anti-footer { flex-wrap: wrap; gap: 10px; }
   .anti-badge { margin-right: 16px; }
   .anti-footer p { width: 100%; order: 1; }
-}
-@media (min-width: 410px) and (max-width: 600px) {
-  .anti-elsewhere .links--primary { grid-template-columns: max-content minmax(0, 1fr); }
 }
 @media (max-width: 380px) {
   .anti-masthead { padding-bottom: 104px; }
